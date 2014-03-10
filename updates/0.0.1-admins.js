@@ -1,9 +1,16 @@
 var keystone = require('keystone'),
-	async = require('async'),
-	User = keystone.list('User');
+	  async = require('async'),
+	  User = keystone.list('User');
 
 var admins = [
-	{ email: 'user@keystonejs.com', password: 'admin', name: { first: 'Admin', last: 'User' } }
+	{ 
+	  email: 'user@keystonejs.com', 
+	  password: 'admin', 
+	  name: { 
+	    first: 'Admin', 
+	    last: 'User' 
+	  } 
+	}
 ];
 
 function createAdmin(admin, done) {

@@ -1,5 +1,5 @@
 var keystone = require('keystone'),
-	Types = keystone.Field.Types;
+	  Types = keystone.Field.Types;
 
 var PostCategory = new keystone.List('PostCategory', {
 	autokey: { from: 'name', path: 'key' }

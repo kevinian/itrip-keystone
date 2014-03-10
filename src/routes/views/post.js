@@ -1,5 +1,5 @@
 var keystone = require('keystone'),
-	async = require('async');
+	  async = require('async');
 
 exports = module.exports = function(req, res) {
 	
@@ -45,4 +45,4 @@ exports = module.exports = function(req, res) {
 	// Render the view
 	view.render('post');
 	
-}
+};

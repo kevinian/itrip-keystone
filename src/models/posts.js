@@ -1,5 +1,5 @@
 var keystone = require('keystone'),
-	Types = keystone.Field.Types;
+	  Types = keystone.Field.Types;
 
 var Post = new keystone.List('Post', {
 	map: { name: 'title' },

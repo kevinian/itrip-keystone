@@ -8,4 +8,4 @@ exports = module.exports = function(req, res) {
 		section: 'home'
 	});
 	
-}
+};
