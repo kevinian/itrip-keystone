@@ -18,6 +18,7 @@ exports = module.exports = function(req, res) {
   
   view.on('post', { action: 'login' },  function(next) {
     console.log('post');
+    console.log(locals.formData);
     locals.enquirySubmitted = true;
     next();
   });
