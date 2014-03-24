@@ -4,10 +4,11 @@
   "private": true,
   "dependencies": {
     "keystone": "*",
-    "async": "~0.2.9",
+    "async": "*",
     "underscore": "~1.5.2",
     "csv": "0.3.6",
-    "dotenv": "0.0.3"
+    "dotenv": "0.0.3",
+    "i18n": "*"
   },
   "engines": {
     "node": ">=0.10.22",

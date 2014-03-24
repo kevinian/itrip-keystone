@@ -1,0 +1,38 @@
+extends ../layouts/default
+
+block content
+
+    // Main jumbotron for a primary marketing message or call to action
+    .jumbotron
+      .container
+        h1 #{__('Hello')}, world!
+        p
+          | This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+        p
+          a.btn.btn-primary.btn-lg Learn more »
+          
+    .container
+      .row
+        .col-lg-3.sidebar(role='navigation')
+          ul.nav.nav-sidebar
+            li.active
+              a(href='#') Action
+            li
+              a(href='#') First
+            li
+              a(href='#') Second
+            li
+              a(href='#') Third
+            
+        .col-lg-9
+            if data.rentals.length
+                each rental in data.rentals
+                    .row
+                      h2 #{rental.name}
+                      p
+                          | #{rental.description}
+                      p
+                          a.btn.btn-default(href='#') View details »
+      hr
+      footer
+        p &copy; Company 2014

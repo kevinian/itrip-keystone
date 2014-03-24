@@ -1,63 +1,43 @@
-/**
- * Keystone CMS
- */
-// Simulate config options from your production environment by
-// customising the .env file in your project's root folder.
+// Load .env for development environments
 require('dotenv')().load();
 
-// Require keystone
-var keystone = require('keystone');
+var keystone = require('keystone'),
+    i18n= require('i18n');
 
-// Initialise Keystone with your project's configuration.
-// See http://keystonejs.com/guide/config for available options
-// and documentation.
+/**
+ * Application Initialisation
+ */
+
 keystone.init({
 
 	'name': 'Itrip-Keystone',
 	'brand': 'Creative Group',
-	 
-	'port': '8082',
+	
+	'port': process.env.PORT || 8080,
 
+	'favicon': 'public/favicon.ico',
 	'less': 'public',
 	'static': 'public',
-	'favicon': 'public/favicon.ico',
 
-	'views': 'src/templates/views',
+	'views': 'templates/views',
 	'view engine': 'jade',
 
-	'auto update': true,
+	'auto update': false,
+	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/keystone-demo',
 
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'cookie secret': 'UI::{*<J`7Zw8]K=:sn?X[!5R;TN>y;MV5Ra.OVLvrbybDQT(vG"38=Xso/rb77G'
-
+	'cookie secret': process.env.COOKIE_SECRET || 'demo'
 });
 
-// Load your project's Models
-keystone.import('src/models');
+require('./models');
 
-// Setup common locals for your templates. The following are required for the
-// bundled templates and layouts. Any runtime locals (that should be set uniquely
-// for each request) should be added to ./routes/middleware.js
-keystone.set('locals', {
-	_: require('underscore'),
-	env: keystone.get('env'),
-	utils: keystone.utils,
-	editable: keystone.content.editable
+i18n.configure({
+    locales:['en', 'de'],
+    directory: __dirname + '/locales'
 });
 
-// Load your project's Routes
-keystone.set('routes', require('./src/routes'));
+keystone.set('routes', require('./routes'));
 
-// Configure the navigation bar in Keystone's Admin UI
-keystone.set('nav', {
-	'posts': ['posts', 'post-categories'],
-	'galleries': 'galleries',
-	'enquiries': 'enquiries',
-	'users': 'users'
-});
-
-// Start Keystone to connect to your database and initialise the web server
-console.log('Keystone Listening on port 8082');
 keystone.start();
