@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "keystone": "git+https://github.com/kevinian/keystone",
+    "keystone": "*",
     "async": "~0.2.9",
     "underscore": "~1.5.2",
     "csv": "0.3.6",
