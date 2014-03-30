@@ -1,5 +1,7 @@
 {
-    "Hello": "Hallo",
+    "index.content.jumbotron.container.head": "Hallo, welt!",
+    "index.content.jumbotron.container.text": "Das ist ein Muster fuer einfache marketing oder informational Webseite.",
+    "index.content.jumbotron.container.button": "Learn more",
     "Hello %s, how are you today?": "Hallo %s, wie geht es dir heute?",
     "weekend": "Wochenende",
     "Hello %s, how are you today? How was your %s.": "Hallo %s, wie geht es dir heute? Wie war dein %s.",

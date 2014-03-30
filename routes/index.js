@@ -1,14 +1,14 @@
 var keystone = require('keystone'),
     i18n = require("i18n"),
-    // middleware = require('./middleware'),
+    middleware = require('./middleware'),
     importRoutes = keystone.importer(__dirname);
 
 // Add-in i18n support
 keystone.pre('routes', i18n.init);
 
 // Common Middleware
-// keystone.pre('routes', middleware.initErrorHandlers);
-// keystone.pre('routes', middleware.initLocals);
+keystone.pre('routes', middleware.initErrorHandlers);
+keystone.pre('routes', middleware.initLocals);
 // keystone.pre('render', middleware.flashMessages);
  
 // Handle 404 errors

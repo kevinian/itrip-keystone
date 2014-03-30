@@ -5,11 +5,11 @@ block content
     // Main jumbotron for a primary marketing message or call to action
     .jumbotron
       .container
-        h1 #{__('Hello')}, world!
+        h1 #{__('index.content.jumbotron.container.head')}
         p
-          | This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+          | #{__('index.content.jumbotron.container.text')}
         p
-          a.btn.btn-primary.btn-lg Learn more »
+          a.btn.btn-primary.btn-lg #{__('index.content.jumbotron.container.button')} »
           
     .container
       .row
@@ -25,10 +25,10 @@ block content
               a(href='#') Third
             
         .col-lg-9
-            if data.rentals.length
-                each rental in data.rentals
+            if data.rentals.results.length
+                each rental in data.rentals.results
                     .row
-                      h2 #{rental.name}
+                      h2 #{rental.title}
                       p
                           | #{rental.description}
                       p

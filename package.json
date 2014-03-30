@@ -5,7 +5,7 @@
   "dependencies": {
     "keystone": "*",
     "async": "*",
-    "underscore": "~1.5.2",
+    "underscore": "*",
     "csv": "0.3.6",
     "dotenv": "0.0.3",
     "i18n": "*"

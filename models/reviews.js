@@ -1,13 +1,19 @@
 var keystone = require('keystone'),
     Types = keystone.Field.Types;
  
-var Review = new keystone.List('Review');
- 
-Review.add({
-    name: { type: Types.Name, required: true, index: true },
-    email: { type: Types.Email, initial: true, required: true, index: true },
-    password: { type: Types.Password, initial: true },
-    canAccessKeystone: { type: Boolean, initial: true }
+var Review = new keystone.List('Review', {
+    map: { name: 'title' },
+    defaultSort: '-publishedAt'
 });
  
+Review.add({
+    title: { type: Types.Text, required: true, initial: true },
+    rate: { type: Types.Number, required: true, initial: true },
+    comment: { type: Types.Textarea },
+    author: { type: Types.Relationship, ref: 'User' },
+    publishedAt: { type: Date, default: Date.now }
+});
+ 
+Review.defaultColumns = 'title, author, publishedAt'; 
+
 Review.register();

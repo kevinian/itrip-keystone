@@ -22,13 +22,13 @@ keystone.init({
 	'views': 'templates/views',
 	'view engine': 'jade',
 
-	'auto update': false,
-	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/keystone-demo',
+	'auto update': true,
+	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/itrip-keystone',
 
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'cookie secret': process.env.COOKIE_SECRET || 'demo'
+	'cookie secret': process.env.COOKIE_SECRET || 'itrip'
 });
 
 require('./models');
