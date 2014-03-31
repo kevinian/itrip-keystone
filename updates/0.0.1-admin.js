@@ -2,20 +2,7 @@ var async = require('async'),
     keystone = require('keystone'),
     User = keystone.list('User');
 
-var users = [
-    {
-        name: { first: 'Junxiang', last: 'Wei' },
-        email: 'kevinprotoss.wei@gmail.com',
-        password: '65575791',
-        canAccessKeystone: true
-    },
-    {
-        name: { first: 'Zengliang', last: 'He' },
-        email: 'hezengliang@gmail.com',
-        password: 'admin',
-        canAccessKeystone: true
-    }
-];
+var users = require('../test/data/adminUsers.json');
  
 exports = module.exports = function(done) {
     async.each(users, importUser, done);
