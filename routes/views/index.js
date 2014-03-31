@@ -1,6 +1,7 @@
 var async = require('async'),
     keystone = require('keystone');
     
+var math = require('../../utils/math');
 var i18n = require('../../utils/i18n');
 
 exports = module.exports = function(req, res) {
@@ -53,16 +54,7 @@ var formatResults = function(rental, cb) {
         function(next) {
             if (!rental.reviews)
                 return next();
-            Math.avg(rental.reviews, function(err, result) {
-                if (err)
-                    return next(err);
-                rental.avgRate = result;
-                next();
-            });
-            async.reduce(rental.reviews, 0, function(memo, item, ascb){
-                var rate = item.rate || 0;
-                ascb(null, memo + rate);
-            }, function(err, result){
+            math.avg(rental.reviews, function(err, result) {
                 if (err)
                     return next(err);
                 rental.avgRate = result;
@@ -71,9 +63,8 @@ var formatResults = function(rental, cb) {
         },
         function(next) {
             // keep only the first 3 reviews
-            if (!rental.reviews || rental.reviews.length < 3)
-                return next();
-            rental.reviews = rental.reviews.slice(0, 3);
+            if (rental.reviews || rental.reviews.length > 3)
+                rental.reviews = rental.reviews.slice(0, 3);
             next(null, rental);
         },
     ], cb);
