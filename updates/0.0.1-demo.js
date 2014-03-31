@@ -4,7 +4,7 @@ var async = require('async'),
     Review = keystone.list('Review'),
     RentalText = keystone.list('RentalText');
 
-var rentals = require('../test/data/rentals.json');
+var rentals = require('../examples/data/rentals.json');
 
 exports = module.exports = function(done) {
     async.each(rentals, importRental, done);
