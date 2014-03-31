@@ -34,9 +34,9 @@ exports = module.exports = function(req, res) {
                     return next(err);
                 locals.data.rentals.results = results;
                 next();
-			});
+            });
         });
-	});
+    });
 
     view.render('index');
     
