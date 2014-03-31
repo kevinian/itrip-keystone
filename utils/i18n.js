@@ -18,7 +18,7 @@ var locales = [
 exports.locales = locales;
 
 exports.translateRental = function(rental, language, cb) {
-    keystone.list('RentalText').model.findOne({ slug: rental.slug, language: language}).exec(function(err, text) {
+    keystone.list('RentalText').model.findOne({ _id: { $in: rental.texts }, language: language}).exec(function(err, text) {
         if (err)
             return cb(err);
         if (text) {

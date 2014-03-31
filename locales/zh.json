@@ -1,11 +1,7 @@
 {
     "index.content.jumbotron.container.head": "你好",
-    "index.content.jumbotron.container.text": "This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.",
+    "index.content.jumbotron.container.text": "欢迎来到爱旅网。",
     "index.content.jumbotron.container.button": "学习更多",
-    "Hello %s, how are you today?": "Hello %s, how are you today?",
-    "weekend": "weekend",
-    "Hello %s, how are you today? How was your %s.": "Hello %s, how are you today? How was your %s.",
-    "Hi": "Hi",
     "Howdy": "Howdy",
     "%s cat": {
         "one": "%s cat",

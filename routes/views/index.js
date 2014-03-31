@@ -52,6 +52,7 @@ var formatResults = function(rental, cb) {
             i18n.translateRental(rental, thiz.language, next);
         },
         function(next) {
+            // Calculate the average rate for the rental
             if (!rental.reviews)
                 return next();
             math.avg(rental.reviews, function(err, result) {
@@ -62,7 +63,7 @@ var formatResults = function(rental, cb) {
             });
         },
         function(next) {
-            // keep only the first 3 reviews
+            // Keep only the first 3 reviews
             if (rental.reviews || rental.reviews.length > 3)
                 rental.reviews = rental.reviews.slice(0, 3);
             next(null, rental);
