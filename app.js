@@ -34,10 +34,16 @@ keystone.init({
 require('./models');
 
 i18n.configure({
-    locales:['en', 'de'],
+    locales: ['en', 'de', 'zh'],
     directory: __dirname + '/locales'
 });
 
 keystone.set('routes', require('./routes'));
+
+keystone.set('nav', {
+	'contents': ['rentals', 'reviews'],
+	'users': 'users',
+	'i18n': 'rental_texts'
+});
 
 keystone.start();

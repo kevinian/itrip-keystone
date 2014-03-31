@@ -29,7 +29,7 @@ Rental.add({
 		{ label: 'true', value: true },
 		{ label: 'false', value: false }
 	], default: false},
-    texts: { type: Types.Relationship, ref: 'RentalText', many: true }
+    texts: { type: Types.Relationship, ref: 'RentalText' }
 });
 
 Rental.defaultColumns = 'title, slug, publishedAt';
