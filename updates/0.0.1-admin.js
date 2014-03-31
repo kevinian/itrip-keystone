@@ -2,7 +2,7 @@ var async = require('async'),
     keystone = require('keystone'),
     User = keystone.list('User');
 
-var users = require('../examples/data/adminUsers.json');
+var users = require('../examples/adminUsers.json');
  
 exports = module.exports = function(done) {
     async.each(users, importUser, done);

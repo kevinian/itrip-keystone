@@ -1,0 +1,69 @@
+[
+    {
+        "title": "House Wei",
+        "refSite": "www.fewo-direct.de",
+        "objectID": "1001",
+        "description": "i18n key",
+        "reviews": [
+            {
+                "title": "Terrible",
+                "rate": 3
+            },
+            {
+                "title": "OK",
+                "rate": 4
+            }
+        ],
+        "texts": [
+            {
+                "name": "house wei text en",
+                "language": "en",
+                "description": "My holiday house!"
+            },
+            {
+                "name": "house wei text de",
+                "language": "de",
+                "description": "Mein Ferienhaus!"
+            },
+            {
+                "name": "house wei text zh",
+                "language": "zh",
+                "description": "我的度假屋!"
+            }
+        ]
+    },
+    {
+        "title": "House He",
+        "refSite": "www.wimdu.com",
+        "objectID": "1002",
+        "description": "i18n key",
+        "i18n": true,
+        "reviews": [
+            {
+                "title": "Just super!!!",
+                "rate": 5
+            },
+            {
+                "title": "Not so good.",
+                "rate": 4
+            }
+        ],
+        "texts": [
+            {
+                "name": "house he text en",
+                "language": "en",
+                "description": "Best of best!"
+            },
+            {
+                "name": "house he text de",
+                "language": "de",
+                "description": "Perfekt!"
+            },
+            {
+                "name": "house he text zh",
+                "language": "zh",
+                "description": "我的别墅!"
+            }
+        ]
+    }
+]

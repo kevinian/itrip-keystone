@@ -1,0 +1,20 @@
+[
+    {
+        "name": { 
+            "first": "Junxiang", 
+            "last": "Wei" 
+        },
+        "email": "kevinprotoss.wei@gmail.com",
+        "password": "65575791",
+        "canAccessKeystone": true
+    },
+    {
+        "name": { 
+            "first": "Zengliang", 
+            "last": "He" 
+        },
+        "email": "hezengliang@gmail.com",
+        "password": "admin",
+        "canAccessKeystone": true
+    }
+]
