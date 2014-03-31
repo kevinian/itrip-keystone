@@ -17,7 +17,7 @@ exports = module.exports = function(req, res) {
         // Get paged rentals and all relevant reviews.
         var q = keystone.list('Rental').paginate({
                     page: req.query.page || 1,
-                    perPage: 10,
+                    perPage: 2,
                     maxPages: 10
                 })
                 .sort('-publishedAt')
