@@ -8,12 +8,12 @@ exports = module.exports = function(req, res) {
     
     var view = new keystone.View(req, res),
         locals = res.locals;
-        
+
     locals.section = 'index';
-        
+
     locals.data = {};
-	
-	view.on('init', function(next) {
+
+    view.on('init', function(next) {
         // Get paged rentals and all relevant reviews.
         var q = keystone.list('Rental').paginate({
                     page: req.query.page || 1,
@@ -22,13 +22,13 @@ exports = module.exports = function(req, res) {
                 })
                 .sort('-publishedAt')
                 .populate('reviews');
-                
+
         q.exec(function(err, pagedRentals) {
             if (err)
                 return next(err);
-                
+
             locals.data.rentals = pagedRentals;
-            
+
             async.map(pagedRentals.results, formatResults.bind({ language: req.language }), function(err, results) {
                 if (err)
                     return next(err);
@@ -37,7 +37,7 @@ exports = module.exports = function(req, res) {
 			});
         });
 	});
-	
+
     view.render('index');
     
 };
