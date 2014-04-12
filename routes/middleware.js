@@ -9,6 +9,13 @@ exports.initLocals = function(req, res, next) {
     
     var locals = res.locals;
     
+    locals.navLinks = [
+		{ label: 'Home', key: 'home', href: '/' },
+		{ label: 'Resort', key: 'resort', href: '/resort' },
+		{ label: 'Forum', href: 'http://community.nodebb.org/' },
+		{ label: 'Contact', key: 'contact', href: '/contact' }
+	];
+    
     locals.user = req.user;
     
     // Add your own local variables here

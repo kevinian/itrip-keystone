@@ -1,0 +1,43 @@
+extends ../layouts/default
+
+include ../mixins/resort-sidebar
+
+block jumbotron
+
+    .row.resort-content-wrapper
+
+block content
+
+    .row
+        .col-lg-3.sidebar(role='navigation')
+            +resort-sidebar(data.geoname.name, data.navigation)
+        .col-lg-9
+            ol.breadcrumb
+                each geoname in data.breadcrumb
+                    li(class=geoname.active ? 'active' : null)
+                        a(href='/resort/' + geoname.geonameId)= geoname.name
+            if data.rentals.results.length
+                .blog
+                    each rental in data.rentals.results
+                        .post
+                            h2 #{rental.title}
+                            p
+                                | #{rental.description}
+                            p
+                                a.btn.btn-default(href='#') Read more »
+            if data.rentals.totalPages > 1
+                ul.pagination
+                    if data.rentals.previous
+                        li: a(href='?page=' + data.rentals.previous): span.glyphicon.glyphicon-chevron-left
+                    else
+                        li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+                    each p, i in data.rentals.pages
+                        li(class=data.rentals.currentPage == p ? 'active' : null)
+                            a(href='?page=' + (p == '...' ? (i ? data.rentals.totalPages : 1) : p ))= p
+                    if data.rentals.next
+                        li: a(href='?page=' + data.rentals.next): span.glyphicon.glyphicon-chevron-right
+                    else
+                        li.disabled: a(href='?page=' + data.rentals.totalPages): span.glyphicon.glyphicon-chevron-right
+            else
+                .jumbotron.text-center
+                    h3 There are no posts yet.

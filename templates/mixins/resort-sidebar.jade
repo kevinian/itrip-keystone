@@ -1,0 +1,7 @@
+mixin resort-sidebar(title, navigation)
+    ul.nav.nav-sidebar
+        h4=title
+        if navigation.length
+            each geoname in navigation
+                li
+                    a(href='/resort/' + geoname.geonameId)= geoname.name

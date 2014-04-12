@@ -35,5 +35,7 @@ var routes = {
 exports = module.exports = function(app) {
     
     app.get('/', routes.views.index);
+    app.get('/resort/:geoname?', routes.views.resort);
+    // app.all('/resort/rental/:rental', routes.views.rental);
     
 }

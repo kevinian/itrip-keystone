@@ -1,7 +1,8 @@
 extends ../layouts/default
 
-block content
+include ../mixins/carousel
 
+block jumbotron
     // Main jumbotron for a primary marketing message or call to action
     .jumbotron
         .container
@@ -11,44 +12,30 @@ block content
             p
                 a.btn.btn-primary.btn-lg #{__('index.content.jumbotron.container.button')} »
 
-    .container
-        .row
-            .col-lg-3.sidebar(role='navigation')
-                ul.nav.nav-sidebar
-                    li.active
-                        a(href='#') Action
-                    li
-                        a(href='#') First
-                    li
-                        a(href='#') Second
-                    li
-                        a(href='#') Third
-            .col-lg-9
-                if data.rentals.results.length
-                    .blog
-                        each rental in data.rentals.results
-                            .post
-                                h2 #{rental.title}
-                                p
-                                    | #{rental.description}
-                                p
-                                    a.btn.btn-default(href='#') Read more »
-                if data.rentals.totalPages > 1
-                    ul.pagination
-                        if data.rentals.previous
-                            li: a(href='?page=' + data.rentals.previous): span.glyphicon.glyphicon-chevron-left
-                        else
-                            li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
-                        each p, i in data.rentals.pages
-                            li(class=data.rentals.currentPage == p ? 'active' : null)
-                                a(href='?page=' + (p == '...' ? (i ? data.rentals.totalPages : 1) : p ))= p
-                        if data.rentals.next
-                            li: a(href='?page=' + data.rentals.next): span.glyphicon.glyphicon-chevron-right
-                        else
-                            li.disabled: a(href='?page=' + data.rentals.totalPages): span.glyphicon.glyphicon-chevron-right
-                else
-                    .jumbotron.text-center
-                        h3 There are no posts yet.
-        hr
-        footer
-            p &copy; Company 2014
+block content
+
+    .row
+        h3 There are no posts yet.
+        a(href='/resort/') Test
+    hr
+    .row
+        h1 The best holiday idea
+        .col-lg-4
+            h2 Heading
+            p Article. 
+            p View details »
+        .col-lg-4
+            h2 Heading
+            p Article. 
+            p View details »
+        .col-lg-4
+            h2 Heading
+            p Article. 
+            p View details »
+    hr
+    .row
+        h3 The country list
+    hr
+    .row
+        h3 The best resorts, see all rentals in the resort
+        +carousel
